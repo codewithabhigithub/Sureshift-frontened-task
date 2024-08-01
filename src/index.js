@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'https://sureshift-backend-task.onrender.com';
 axios.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
   if (token) {
