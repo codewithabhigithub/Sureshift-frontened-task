@@ -19,6 +19,7 @@ const UserForm = () => {
     };
 
     const [formData, setFormData] = useState(initialFormData);
+    const [isLoading, setIsLoading] = useState(false); // Loading state
 
     const handleChange = (e) => {
         setFormData({
@@ -29,15 +30,16 @@ const UserForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Start loading
         try {
             await axios.post('/user', formData);
-            var a = alert('User data submitted successfully');
-            if (a) {
-                window.location.reload();
-            }
+            alert('User data submitted successfully');
+            handleReset(); // Reset the form data after successful submission
         } catch (error) {
             console.error('Error submitting user data:', error);
             alert('Failed to submit user data');
+        } finally {
+            setIsLoading(false); // Stop loading
         }
     };
 
@@ -106,8 +108,21 @@ const UserForm = () => {
                             </select>
                         </div>
                         <div>
-                            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md mb-5">Submit</button>
-                            <button type="button" onClick={handleReset} className="w-full bg-blue-500 text-white p-2 rounded-md">Reset</button>
+                            <button 
+                                type="submit" 
+                                className={`w-full p-2 rounded-md mb-5 ${isLoading ? 'bg-gray-500' : 'bg-blue-500'} text-white`}
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Submitting...' : 'Submit'}
+                            </button>
+                            <button 
+                                type="button" 
+                                onClick={handleReset} 
+                                className="w-full bg-blue-500 text-white p-2 rounded-md"
+                                disabled={isLoading}
+                            >
+                                Reset
+                            </button>
                         </div>
                     </form>
                 </div>
