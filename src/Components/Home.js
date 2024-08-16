@@ -70,7 +70,7 @@ export default function Home() {
       <div className='w-[100%] flex justify-center mt-6'>
         <div className="container mx-auto flex flex-col lg:flex-row items-center lg:space-x-12 lg:w-[80%]">
           <div className="lg:w-1/2 text-center lg:text-left w-[350px]">
-            <h1 className="lg:text-6xl text-3xl font-bold mb-4">BEST LOGISTIC DELIVERY SERVICE IN TOWN</h1>
+            <h1 className="lg:text-6xl text-3xl font-bold mb-4">BEST LOGISTIiiiiiiiiC DELIVERY SERVICE IN TOWN</h1>
             <p className="text-lg mb-6 text-[#7f7e7e] font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
             <a href="/user-form" className="inline-block bg-[#D81F47] text-white py-3 px-8 rounded-lg" >Book Now</a>
           </div>
